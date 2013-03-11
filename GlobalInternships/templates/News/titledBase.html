@@ -1,0 +1,59 @@
+{% extends "News/base.html" %}
+{% block body %}
+<div class="container-fluid">
+	<br/>
+	<div class="row-fluid">
+		<div class="span2"></div>
+		<div class="span8" style="background-color:#FFFFFF;padding:20px;padding-top:20px;">
+			<div class="header" align="center">
+				<!--Page Header-->
+				<img src="{{ STATIC_URL }}images/Banner.png" width="100%" align="middle"/>
+				<hr/>
+				<div class="navigation">
+					<h3>
+					<span class="navlink"><a href="/news">News</a></span>
+					|
+					<span class="navlink"><a href="#">Events</a></span>
+					|
+					<span class="navlink"><a href="#">Resources</a></span>
+					|
+					<span class="navlink"><a href="#">Members</a></span>
+					|
+					<span class="navlink"><a href="#">Apply</a></span>
+					</h3>
+				</div>
+			</div>
+		</div>
+		<div class="span2"></div>
+	</div>
+	<br/>
+	<div class="row-fluid">
+		<div class="span2"></div>
+		<div class="span8" style="background-color:#FFFFFF;padding:20px;">
+			<div class="content">
+				<!--Page Content-->
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+		<div class="span2"></div>
+	</div>
+	<br/>
+	<div class="row-fluid">
+		<div class="span2"></div>
+		<div class="span8" style="background-color:#FFFFFF;padding:20px;">
+			<div style="float:right">
+				Follow us:&nbsp&nbsp
+				<a href="https://www.facebook.com/groups/428987587196120/"><img src="{{ STATIC_URL }}images/socials/facebook.png"/></a>
+				<a href="#"><img src="{{ STATIC_URL }}images/socials/twitter.png"/></a>
+				<a href="#"><img src="{{ STATIC_URL }}images/socials/tumblr.png"/></a>
+			</div>
+			<div style="float:left">
+				Contact: <a>email@example.com</a>
+			</div>
+		</div>
+		<div class="span2"></div>
+	</div>
+	<br/>
+</div>
+{% endblock %}

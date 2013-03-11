@@ -1,0 +1,15 @@
+{% extends "News/titledBase.html" %}
+{% block content %}
+		<h1>{{ newsItem.title }}</h1>
+		<br/>
+		<img src="{{ newsItem.imageURL }}"></img>
+		<br/>
+		<br/>
+		By <strong>{{ newsItem.author }}</strong> on <em>{{ newsItem.pub_date }}</em>
+		<br/>
+		<br/>
+		{{ newsItem.article }}
+		<br/>
+		<br/>
+		<a class='btn' href="/news" style="float:right">Back</a>
+{% endblock %}

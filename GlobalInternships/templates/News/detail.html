@@ -2,13 +2,14 @@
 {% block content %}
 		<h1>{{ newsItem.title }}</h1>
 		<br/>
-		<img src="{{ newsItem.imageURL }}"></img>
+		<img src="{{ newsItem.imageURL }}" width="40%"></img>
+		<br/>
 		<br/>
 		<br/>
 		By <strong>{{ newsItem.author }}</strong> on <em>{{ newsItem.pub_date }}</em>
 		<br/>
 		<br/>
-		{{ newsItem.article }}
+		<div style="white-space: pre-wrap;">{{ newsItem.article }}</div>
 		<br/>
 		<br/>
 		<a class='btn' href="/news" style="float:right">Back</a>

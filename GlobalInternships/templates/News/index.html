@@ -1,15 +1,23 @@
 {% extends "News/titledBase.html" %}
 {% block content %}
 	<!--Page Content-->
-	{% if latest_news %}
-			{% for newsItem in latest_news %}
+		{% if latest_news %}
+				<table>
+				{% for newsItem in latest_news %}
+				<tr>
+					<td>
+						<hr/>
+						<h3><a href="{% url News:detail newsItem.id %}">{{ newsItem.title }}</a></h3>
+						<img src="{{newsItem.imageURL}}" width="25%" style="float:left; padding-right:15px;"/>
+						{{ newsItem.preview }}
+						<a href="{% url News:detail newsItem.id %}">... (read more)</a>
+						<br/>
+					</td>
+				</tr>
+				{% endfor %}
+				</table>
 				<hr/>
-				<h3><a href="{% url News:detail newsItem.id %}">{{ newsItem.title }}</a></h3>
-				<img src="{{newsItem.imageURL}}" width="25%" style="float:left; padding-right:15px;"/>
-				{{ newsItem.preview }}
-				<a href="{% url News:detail newsItem.id %}">... (read more)</a>
-			{% endfor %}
-	{% else %}
-		<p>No news available.</p>
-	{% endif %}
+		{% else %}
+			<p>No news available.</p>
+		{% endif %}
 {% endblock %}

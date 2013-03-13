@@ -1,6 +1,7 @@
 {% extends "News/titledBase.html" %}
 {% block content %}
 		<h1>{{ newsItem.title }}</h1>
+		<hr/>
 		<br/>
 		<img src="{{ newsItem.imageURL }}" width="40%"></img>
 		<br/>
@@ -13,4 +14,10 @@
 		<br/>
 		<br/>
 		<a class='btn' href="/news" style="float:right">Back</a>
+{% endblock %}
+
+{% block sidebar %}
+	<!--Page Sidebar-->
+	<h2>Related Stories</h2>
+	<hr/>
 {% endblock %}

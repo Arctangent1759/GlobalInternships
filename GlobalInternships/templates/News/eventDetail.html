@@ -1,0 +1,53 @@
+{% extends "News/titledBase.html" %}
+{% block content %}
+		<h1>{{ event.name }}</h1>
+		<hr/>
+		<table class="table table-striped">
+			<tr>
+				<td>
+					<strong>Date:</strong>
+				</td>
+				<td>
+					<div style="white-space: pre-wrap;">{{ event.start }} to {{ event.end }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Location:</strong>
+				</td>
+				<td>
+					<div style="white-space: pre-wrap;">{{ event.location }}</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Description:</strong>
+				</td>
+				<td>
+					<div style="white-space: pre-wrap;">{{ event.description }}</div>
+				</td>
+			</tr>
+		</table>
+		<a class='btn' href="/" style="float:right">Back</a>
+{% endblock %}
+
+{% block sidebar %}
+	<!--Page Sidebar-->
+	<h2>Upcoming Events</h2>
+	<hr/>
+		<table>
+			{% for event in upcoming_events %}
+				<tr>
+					<td>
+						<div class="shaded">
+							<a href="{% url News:event event.id %}"><strong>{{ event.name }}</strong><br/></a>
+							<em>{{ event.location }}</em><br/>
+							<div style="white-space: pre-wrap;">{{ event.description }}</div>
+							<br/>
+						</div>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+{% endblock %}

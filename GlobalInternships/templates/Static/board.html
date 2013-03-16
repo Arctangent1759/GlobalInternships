@@ -1,46 +1,48 @@
-{% extends "News/titledBase.html" %}
+{% extends "Base/onePanedBase.html" %}
 {% block content %}
 	<!--Page Content-->
-		<h2>News</h2>
-		{% if latest_news %}
-				<table>
-				{% for newsItem in latest_news %}
-				<tr>
-					<td>
-						<hr/>
-						<h3><a href="{% url News:detail newsItem.id %}">{{ newsItem.title }}</a></h3>
-						<div class="crop" style="float:left; padding-right:15px;">
-							<a href="{% url News:detail newsItem.id %}"><img src="{{newsItem.imageURL}}"/></a>
-						</div>
-						{{ newsItem.preview }}
-						<a href="{% url News:detail newsItem.id %}">... (read more)</a>
-						<br/>
-					</td>
-				</tr>
-				{% endfor %}
-				</table>
+		<h2>Board</h2>
+		<table style="width:100%;">
+			<tr><td>
 				<hr/>
-		{% else %}
-			<p>No news available.</p>
-		{% endif %}
-{% endblock %}
-
-{% block sidebar %}
-	<!--Page Sidebar-->
-	<h2>Upcoming Events</h2>
-	<hr/>
-		<table>
-			{% for event in upcoming_events %}
-				<tr>
-					<td>
-						<div class="shaded">
-							<a href="{% url News:event event.id %}"><strong>{{ event.name }}</strong><br/></a>
-							<em>{{ event.location }}</em><br/>
-							<div style="white-space: pre-wrap;">{{ event.description }}</div>
-							<br/>
-						</div>
-					</td>
-				</tr>
-			{% endfor %}
+				<h3>Sarah Yifan Wang</h3>
+				<div class="crop" style="float:right; padding-right:15px;">
+					<img src="http://placekitten.com/g/250/250"/>
+				</div>
+				<div style="white-space: pre-wrap;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet imperdiet leo. Nullam eu nunc tellus. Maecenas pellentesque risus ac justo porta fringilla. Donec convallis vestibulum volutpat. Aenean aliquam, eros nec posuere bibendum, massa dolor mollis est, eget ornare magna tellus id enim. Suspendisse sollicitudin pellentesque est, vitae vulputate ipsum pharetra eget. In nec enim tellus. Cras pellentesque vehicula scelerisque. Donec dignissim porttitor turpis ut faucibus. Fusce luctus condimentum dui ut faucibus. Maecenas ut nibh dolor. Praesent id nisi lorem, non convallis risus. Curabitur gravida aliquet lacus, sit amet volutpat eros lobortis id. Sed a lorem at mauris laoreet adipiscing vel sed neque. Quisque consectetur convallis diam in feugiat. Duis quis metus id quam dapibus commodo sed sed tellus. 
+				</div>
+			</td></tr>
+			<tr><td>
+				<hr/>
+				<h3>Isabel Chan</h3>
+				<div class="crop" style="float:right; padding-right:15px;">
+					<img src="http://placekitten.com/g/251/250"/>
+				</div>
+				<div style="white-space: pre-wrap;">
+ Praesent aliquam dolor in quam luctus vehicula. Vestibulum in dolor neque, eget egestas eros. Nulla congue porttitor sodales. Integer augue risus, dapibus ac fringilla in, egestas eu ligula. Praesent cursus ultricies lacus sit amet fringilla. Nulla pharetra sodales quam, ac molestie dui imperdiet auctor. Fusce euismod tristique turpis, ut vulputate sapien eleifend ut. Vestibulum volutpat facilisis quam, sit amet venenatis nisi rhoncus a. Fusce auctor mauris eget orci dictum et mollis diam sodales. 
+				</div>
+			</td></tr>
+			<tr><td>
+				<hr/>
+				<h3>Grant Ye</h3>
+				<div class="crop" style="float:right; padding-right:15px;">
+					<img src="http://placekitten.com/g/252/250"/>
+				</div>
+				<div style="white-space: pre-wrap;">
+ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum in mi metus, a semper augue. Fusce cursus vestibulum lobortis. Donec lobortis aliquam libero, a luctus magna consequat in. Aenean at porttitor ante. Quisque pellentesque, sapien in iaculis dapibus, ante justo pulvinar nibh, at aliquam mauris nisl eu lorem. Phasellus luctus gravida molestie. Fusce non magna quis elit ullamcorper dictum. Donec varius fermentum metus vitae dapibus. Nunc leo metus, congue sed ullamcorper et, luctus ac purus. Sed euismod lobortis nibh, consequat hendrerit ligula sodales non. Sed quis felis a orci egestas tincidunt. Vestibulum augue velit, consectetur et vestibulum in, volutpat sit amet justo. Integer ligula quam, accumsan ut placerat id, lobortis quis massa. Duis sed massa vel dolor ullamcorper aliquam sed eget leo. 
+				</div>
+			</td></tr>
+			<tr><td>
+				<hr/>
+				<h3>Alexander Chu</h3>
+				<div class="crop" style="float:right; padding-right:15px;">
+					<img src="http://placekitten.com/g/253/250"/>
+				</div>
+				<div style="white-space: pre-wrap;">
+ Cras eu ligula leo, ac cursus lacus. Fusce eu massa neque, vitae ullamcorper leo. Sed est dui, congue suscipit aliquet sed, ultrices vitae lectus. Vivamus porta urna non nulla lobortis rutrum. Proin porttitor placerat elit, non pharetra orci dignissim et. Vivamus convallis rutrum nulla at placerat. Mauris facilisis elit eget lectus bibendum quis scelerisque mi gravida. Curabitur malesuada velit interdum magna ultricies vulputate. Pellentesque scelerisque erat vitae elit posuere nec fermentum lorem pharetra. Donec tempor erat nisl. Ut varius elit vel lorem volutpat quis tincidunt mauris blandit. Morbi iaculis egestas nulla, id imperdiet lorem suscipit sit amet. Pellentesque consequat ligula at magna auctor malesuada. Nullam et velit non felis aliquam aliquam. Duis mollis ipsum a diam consequat aliquam. 
+				</div>
+			</td></tr>
 		</table>
+		<hr/>
 {% endblock %}

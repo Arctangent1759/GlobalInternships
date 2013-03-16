@@ -1,28 +1,35 @@
 {% extends "Base/twoPanedBase.html" %}
 {% block content %}
-	<!--Page Content-->
-		<h2>News</h2>
-		{% if latest_news %}
-				<table>
-				{% for newsItem in latest_news %}
-				<tr>
-					<td>
-						<hr/>
-						<h3><a href="{% url News:detail newsItem.id %}">{{ newsItem.title }}</a></h3>
-						<div class="crop" style="float:left; padding-right:15px;">
-							<a href="{% url News:detail newsItem.id %}"><img src="{{newsItem.imageURL}}"/></a>
-						</div>
-						{{ newsItem.preview }}
-						<a href="{% url News:detail newsItem.id %}">... (read more)</a>
-						<br/>
-					</td>
-				</tr>
-				{% endfor %}
-				</table>
-				<hr/>
-		{% else %}
-			<p>No news available.</p>
-		{% endif %}
+		<h1>{{ event.name }}</h1>
+		<hr/>
+		<table class="table table-striped">
+			<tr>
+				<td>
+					<strong>Date:</strong>
+				</td>
+				<td>
+					<div style="white-space: pre-wrap;">{{ event.start }} to {{ event.end }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Location:</strong>
+				</td>
+				<td>
+					<div style="white-space: pre-wrap;">{{ event.location }}</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Description:</strong>
+				</td>
+				<td>
+					<div style="white-space: pre-wrap;">{{ event.description }}</div>
+				</td>
+			</tr>
+		</table>
+		<a class='btn' href="/" style="float:right">Back</a>
 {% endblock %}
 
 {% block sidebar %}

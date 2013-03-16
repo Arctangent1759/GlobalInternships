@@ -1,0 +1,14 @@
+{% extends "Base/titledBase.html" %}
+{% block panes %}
+<div class="row-fluid">
+	<div class="span1"></div>
+	<div class="span10" style="background-color:#FFFFFF;padding:20px;">
+		<div class="content">
+			<!--Page Content-->
+			{% block content %}
+			{% endblock %}
+		</div>
+	</div>
+	<div class="span1"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "Base/twoPanedBase.html" %}
+{% block content %}
+	<!--Page Content-->
+		<h2>Events</h2>
+			{% for event in upcoming_events %}
+				<tr>
+					<td>
+						<hr/>
+						<a href="{% url Event:event event.id %}"><h3>{{ event.name }}</h3><br/></a>
+						<table class="table table-striped">
+							<tr>
+								<td>
+									<strong>Date:</strong>
+								</td>
+								<td>
+									<div style="white-space: pre-wrap;">{{ event.start }} to {{ event.end }}</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Location:</strong>
+								</td>
+								<td>
+									<div style="white-space: pre-wrap;">{{ event.location }}</div>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<strong>Description:</strong>
+								</td>
+								<td>
+									<div style="white-space: pre-wrap;">{{ event.description|truncatewords:"50"}}<a href="{% url Event:event event.id %}"> (read more)</a></div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			{% endfor %}
+			<hr/>
+{% endblock %}
+
+{% block sidebar %}
+	<!--Page Sidebar-->
+	<h2>Related Stories</h2>
+	<hr/>
+		<table>
+			{% for story in related_stories %}
+				<tr>
+					<td>
+						<div class="shaded">
+							<a href="{% url News:detail story.id %}"><strong>{{ story.title }}</strong><br/></a>
+							<div style="margin:10px">
+								<a href="{% url News:detail story.id %}"><img src="{{story.imageURL}}" style="width:50%;height:50%;float:left;margin:3px;"/></a>
+								{{ story.preview }}
+								<a href="{% url News:detail story.id %}">... (read more)<br/></a>
+							</div>
+							<br/>
+						</div>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+{% endblock %}

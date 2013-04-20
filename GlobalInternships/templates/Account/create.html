@@ -1,0 +1,99 @@
+{% extends "Base/onePanedBase.html" %}
+{% block content %}
+	<!--Page Content-->
+		<h2>Account Creation</h2>
+		<hr/>
+		<div id="errors">
+			<!--Error container-->
+		</div>
+		<form name="input" action="" method="POST" onsubmit="return validateForm()">
+			{% csrf_token %} 
+			<fieldset>
+
+				<legend>Account Information</legend>
+
+				<label>Username:</label>
+				<input id="username" name="username" type="text" placeholder="Username"/>
+				<label>Password:</label>
+				<input id="password" name="password" type="password" placeholder="Password"/>
+				<label>Email:</label>
+				<input id="email" name="email" type="text" placeholder="email@example.com"/>
+				<br/>
+
+
+				<legend>User Information</legend>
+				<label>Name:</label>
+				<input id="firstname" name="firstname" type="text" class="input-medium" placeholder="First">
+				&nbsp
+				&nbsp
+				<input id="lastname" name="lastname" type="text" class="input-medium" placeholder="Last">
+				<br/>
+				<label>Major:</label>
+				<input id="major" name="major" type="text" class="input-medium" placeholder="Major">
+				<br/>
+
+
+
+				<label>Expected Date of Graduation:</label>
+				<table style="width:100%"><tr>
+					<td style="width:6em;">
+						<label class="radio">
+							<input type="radio" id="gradmonth" name="gradmonth" value="Fall" checked/>
+							Fall
+						</label>
+						<label class="radio">
+							<input type="radio" id="gradmonth" name="gradmonth" value="Spring"/>
+							Spring
+						</label>
+					</td>
+					<td>
+						<select id="gradyear" name="gradyear">
+							<option>2012</option>
+							<option>2013</option>
+							<option>2014</option>
+							<option>2015</option>
+							<option>2016</option>
+							<option>2017</option>
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+							<!--
+							Dear Web Designer of 
+							2020. Please excuse my 
+							horrid abstraction here. 
+							I am but a n00b freshman.
+							-->
+						</select>
+					</td>
+				</tr></table>
+				<label>Interests:</label>
+				<textarea id="interests" name="interests" style="width:40%" rows="5"></textarea>
+
+
+				<legend>Administrivia</legend>
+				<label class="checkbox">
+					<input id="wantemails" name="wantemails" type="checkbox"> 
+					I would like to recieve email updates from Global Internships @ Berkeley.
+				</label>
+				<button type="submit" class="btn">Submit</button>
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+			function validateForm(){
+				errors=[];
+				if ($("#username").val().length==0){errors.push("Username field is required.")}
+				if ($("#password").val().length==0){errors.push("Password field is required.")}
+				if ($("#email").val().length==0){errors.push("Email field is required.")}
+				if (/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i.exec($("#email").val())==null){errors.push("Email is invalid.")}
+				if ($("#firstname").val().length==0){errors.push("First name field is required.")}
+				if ($("#lastname").val().length==0){errors.push("Last name field is required.")}
+				if ($("#major").val().length==0){errors.push("Major field is required.")}
+				$("#errors").html("");
+				for (i=0; i < errors.length; i++){
+					$("#errors").append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>'+errors[i]+'</div>');
+					window.scrollTo(0,300)
+				}
+				return errors.length==0;
+			}
+		</script>
+{% endblock %}

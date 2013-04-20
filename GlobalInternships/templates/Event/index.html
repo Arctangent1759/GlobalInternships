@@ -2,6 +2,7 @@
 {% block content %}
 	<!--Page Content-->
 		<h2>Events</h2>
+		{% if upcoming_events %}
 			{% for event in upcoming_events %}
 				<tr>
 					<td>
@@ -38,12 +39,17 @@
 				</tr>
 			{% endfor %}
 			<hr/>
+		{% else %}
+			<p>No events available.</p>
+		{% endif %}
+
 {% endblock %}
 
 {% block sidebar %}
 	<!--Page Sidebar-->
 	<h2>Related Stories</h2>
-	<hr/>
+		{% if related_stories %}
+		<hr/>
 		<table>
 			{% for story in related_stories %}
 				<tr>
@@ -61,4 +67,8 @@
 				</tr>
 			{% endfor %}
 		</table>
+	{% else %}
+		<p>No events available.</p>
+	{% endif %}
+
 {% endblock %}

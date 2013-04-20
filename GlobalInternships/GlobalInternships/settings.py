@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 	'News',
 	'Event',
+	'Account',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -153,3 +154,15 @@ LOGGING = {
         },
     }
 }
+
+#My settings
+
+
+
+AUTH_PROFILE_MODULE = 'Account.Profile'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+

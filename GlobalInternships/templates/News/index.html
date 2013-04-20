@@ -27,22 +27,26 @@
 
 {% block sidebar %}
 	<!--Page Sidebar-->
-	<h2>Upcoming Events</h2>
-	<hr/>
-		<table>
-			{% for event in upcoming_events %}
-				<tr>
-					<td>
-						<div class="shaded">
-							<a href="{% url Event:event event.id %}"><strong>{{ event.name }}</strong><br/></a>
-							<em>{{ event.location }}</em><br/>
-							<small><strong>Start: </strong>{{ event.start }}</small><br/>
-							<small><strong>End: </strong>{{ event.end }}</small><br/>
-							<div style="white-space: pre-wrap;">{{ event.description|truncatewords:"30" }} <a href="{% url Event:event event.id %}">(read more)</a></div>
-							<br/>
-						</div>
-					</td>
-				</tr>
-			{% endfor %}
-		</table>
+		<h2>Upcoming Events</h2>
+		{% if upcoming_events %}
+			<hr/>
+			<table>
+				{% for event in upcoming_events %}
+					<tr>
+						<td>
+							<div class="shaded">
+								<a href="{% url Event:event event.id %}"><strong>{{ event.name }}</strong><br/></a>
+								<em>{{ event.location }}</em><br/>
+								<small><strong>Start: </strong>{{ event.start }}</small><br/>
+								<small><strong>End: </strong>{{ event.end }}</small><br/>
+								<div style="white-space: pre-wrap;">{{ event.description|truncatewords:"30" }} <a href="{% url Event:event event.id %}">(read more)</a></div>
+								<br/>
+							</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>No events available.</p>
+		{% endif %}
 {% endblock %}
